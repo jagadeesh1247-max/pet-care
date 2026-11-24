@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paws &amp; Hearth | Holistic Pet Wellness, Training &amp; Grooming</title>
+  <meta name="description" content="Compassionate veterinary care, positive pet training, and gentle grooming services tailored for your furry companions.">
+  
+  <!-- Google Fonts: Lora (Warm Editorial Serif) & Plus Jakarta Sans (Clean Modern Sans-Serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. CSS CUSTOM PROPERTIES & DESIGN TOKENS
+       ========================================================================== */
+    :root {
+      /* Brand Palette: Sage Green, Warm Cream, Terracotta, Deep Charcoal */
+      --color-cream: #FAF8F5;
+      --color-cream-alt: #F2EDE4;
+      --color-white: #FFFFFF;
+      
+      --color-sage-dark: #2F4F42;
+      --color-sage: #4A7260;
+      --color-sage-light: #E4ECE8;
+      --color-sage-tint: #EFF4F1;
+      
+      --color-terracotta: #C86D51;
+      --color-terracotta-dark: #AE573C;
+      --color-terracotta-light: #F9EAE5;
+      --color-amber: #D99B52;
+
+      --color-charcoal: #222625;
+      --color-slate: #525956;
+      --color-muted: #757D7A;
+      --color-border: #E2DBD0;
+
+      /* Typography */
+      --font-heading: 'Lora', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Spacing & Layout */
+      --container-max: 1200px;
+      --section-padding: 5.5rem 1.5rem;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+
+      /* Elevation & Transitions */
+      --shadow-sm: 0 2px 8px rgba(34, 38, 37, 0.04);
+      --shadow-md: 0 10px 30px rgba(34, 38, 37, 0.07);
+      --shadow-lg: 0 20px 40px rgba(47, 79, 66, 0.12);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* ==========================================================================
+       2. RESET & BASE STYLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 84px; /* Accounts for sticky header height */
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-cream);
+      color: var(--color-charcoal);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ==========================================================================
+       3. TYPOGRAPHY & REUSABLE UTILITIES
+       ========================================================================== */
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--color-charcoal);
+      line-height: 1.22;
+      font-weight: 600;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-terracotta);
+      background-color: var(--color-terracotta-light);
+      padding: 0.35rem 0.9rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 0.85rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      margin-bottom: 1rem;
+      color: var(--color-sage-dark);
+    }
+
+    .section-subtitle {
+      font-size: 1.0625rem;
+      color: var(--color-slate);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.975rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: var(--radius-full);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .btn-primary {
+      background-color: var(--color-terracotta);
+      color: var(--color-white);
+      box-shadow: 0 6px 18px rgba(200, 109, 81, 0.28);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--color-terracotta-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(200, 109, 81, 0.35);
+    }
+
+    .btn-secondary {
+      background-color: var(--color-white);
+      color: var(--color-sage-dark);
+      border-color: var(--color-border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-sage);
+      background-color: var(--color-sage-tint);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       4. STICKY HEADER & PURE CSS MOBILE HAMBURGER MENU
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(250, 248, 245, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      padding: 0 1.5rem;
+      max-width: var(--container-max);
+      margin: 0 auto;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--color-sage-dark);
+    }
+
+    .brand-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: var(--color-sage);
+      color: var(--color-white);
+      border-radius: 12px;
+      font-size: 1.25rem;
+    }
+
+    /* Hidden checkbox for CSS-only mobile menu */
+    .nav-toggle-checkbox {
+      display: none;
+    }
+
+    .nav-toggle-label {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      background-color: var(--color-cream-alt);
+      border: 1px solid var(--color-border);
+      gap: 5px;
+    }
+
+    .nav-toggle-label span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--color-sage-dark);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-slate);
+      position: relative;
+      padding: 0.25rem 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-terracotta);
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--color-sage-dark);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.6rem 1.35rem;
+      font-size: 0.9rem;
+    }
+
+    /* ==========================================================================
+       5. HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding: 4rem 1.5rem 5.5rem;
+      background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-cream-alt) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 3.5rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--color-sage-light);
+      color: var(--color-sage-dark);
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.45rem 1rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      color: var(--color-sage-dark);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.015em;
+    }
+
+    .hero-title span {
+      color: var(--color-terracotta);
+      font-style: italic;
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+      color: var(--color-slate);
+      margin-bottom: 2rem;
+      max-width: 560px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.75rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.25rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .stat-item strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: var(--color-sage-dark);
+    }
+
+    .stat-item span {
+      font-size: 0.875rem;
+      color: var(--color-muted);
+      font-weight: 500;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-image-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 8px solid var(--color-white);
+      aspect-ratio: 4 / 4.4;
+      background-color: var(--color-sage-light);
+    }
+
+    .hero-image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      bottom: -1.25rem;
+      left: -1.25rem;
+      background-color: var(--color-white);
+      padding: 1rem 1.35rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      max-width: 280px;
+    }
+
+    .floating-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: var(--color-terracotta-light);
+      color: var(--color-terracotta);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .hero-floating-card strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--color-charcoal);
+    }
+
+    .hero-floating-card small {
+      font-size: 0.8rem;
+      color: var(--color-muted);
+    }
+
+    /* ==========================================================================
+       6. AVAILABLE SERVICES SECTION
+       ========================================================================== */
+    .services-section {
+      padding: var(--section-padding);
+      background-color: var(--color-cream);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .service-card {
+      background-color: var(--color-white);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--color-sage);
+    }
+
+    .service-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.35rem;
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background-color: var(--color-sage-tint);
+      color: var(--color-sage-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .service-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.35rem 0.8rem;
+      border-radius: var(--radius-full);
+      background-color: var(--color-cream-alt);
+      color: var(--color-sage-dark);
+    }
+
+    .service-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-charcoal);
+    }
+
+    .service-card p {
+      color: var(--color-slate);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-features {
+      border-top: 1px solid var(--color-cream-alt);
+      padding-top: 1rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .service-features li {
+      font-size: 0.875rem;
+      color: var(--color-slate);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .service-features li::before {
+      content: '✓';
+      color: var(--color-sage);
+      font-weight: 700;
+    }
+
+    .service-link {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--color-terracotta);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .service-link:hover {
+      color: var(--color-terracotta-dark);
+      gap: 0.6rem;
+    }
+
+    /* ==========================================================================
+       7. PET-CARE TIPS SECTION
+       ========================================================================== */
+    .tips-section {
+      padding: var(--section-padding);
+      background-color: var(--color-sage-tint);
+      border-top: 1px solid var(--color-sage-light);
+      border-bottom: 1px solid var(--color-sage-light);
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .tip-card {
+      background-color: var(--color-white);
+      border-radius: var(--radius-md);
+      padding: 1.85rem;
+      border-left: 5px solid var(--color-sage);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .tip-card:nth-child(even) {
+      border-left-color: var(--color-terracotta);
+    }
+
+    .tip-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tip-category {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-sage);
+      margin-bottom: 0.6rem;
+    }
+
+    .tip-card:nth-child(even) .tip-category {
+      color: var(--color-terracotta);
+    }
+
+    .tip-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .tip-card p {
+      font-size: 0.94rem;
+      color: var(--color-slate);
+      margin-bottom: 1rem;
+    }
+
+    .tip-checklist {
+      background-color: var(--color-cream);
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      color: var(--color-charcoal);
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       8. VETERINARIAN & TRAINER TEAM SECTION
+       ========================================================================== */
+    .team-section {
+      padding: var(--section-padding);
+      background-color: var(--color-cream);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.25rem;
+    }
+
+    .team-card {
+      background-color: var(--color-white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .team-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .team-photo {
+      aspect-ratio: 4 / 3.2;
+      overflow: hidden;
+      background-color: var(--color-cream-alt);
+      position: relative;
+    }
+
+    .team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .team-card:hover .team-photo img {
+      transform: scale(1.04);
+    }
+
+    .team-role-pill {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      background-color: rgba(47, 79, 66, 0.92);
+      color: var(--color-white);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(4px);
+    }
+
+    .team-info {
+      padding: 1.75rem;
+    }
+
+    .team-info h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .team-credentials {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--color-terracotta);
+      margin-bottom: 0.85rem;
+    }
+
+    .team-info p {
+      font-size: 0.94rem;
+      color: var(--color-slate);
+      margin-bottom: 1.25rem;
+    }
+
+    .specialty-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .specialty-tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      background-color: var(--color-cream-alt);
+      color: var(--color-sage-dark);
+      padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-full);
+    }
+
+    /* ==========================================================================
+       9. APPOINTMENT DETAILS & BOOKING FORM SECTION
+       ========================================================================== */
+    .appointment-section {
+      padding: var(--section-padding);
+      background-color: var(--color-cream-alt);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .appointment-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* Left Column: Clinic Hours & Guidelines */
+    .clinic-details-card {
+      background-color: var(--color-sage-dark);
+      color: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .clinic-details-card h2 {
+      color: var(--color-white);
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .clinic-details-card > p {
+      color: var(--color-sage-light);
+      margin-bottom: 2rem;
+      font-size: 0.98rem;
+    }
+
+    .hours-box {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 1.35rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .hours-box h3 {
+      color: var(--color-amber);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.85rem;
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.45rem 0;
+      font-size: 0.92rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hours-list li:last-child {
+      border-bottom: none;
+    }
+
+    .guidelines-list {
+      margin-bottom: 1.75rem;
+    }
+
+    .guidelines-list h3 {
+      color: var(--color-white);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .guidelines-list li {
+      font-size: 0.9rem;
+      color: var(--color-sage-light);
+      margin-bottom: 0.55rem;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+
+    .guidelines-list li::before {
+      content: '•';
+      color: var(--color-amber);
+      font-weight: bold;
+      position: absolute;
+      left: 0.25rem;
+    }
+
+    .emergency-banner {
+      background-color: var(--color-terracotta);
+      color: var(--color-white);
+      padding: 1.15rem 1.25rem;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+    }
+
+    .emergency-banner strong {
+      display: block;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Right Column: Accessible Pure HTML/CSS Booking Form */
+    .booking-form-card {
+      background-color: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-md);
+    }
+
+    .booking-form-card h3 {
+      font-size: 1.65rem;
+      color: var(--color-sage-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .booking-form-card > p {
+      color: var(--color-slate);
+      font-size: 0.95rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-charcoal);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--color-charcoal);
+      background-color: var(--color-cream);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--color-sage);
+      background-color: var(--color-white);
+      box-shadow: 0 0 0 4px rgba(74, 114, 96, 0.14);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--color-muted);
+      margin-top: 0.85rem;
+    }
+
+    /* ==========================================================================
+       10. CONTACT INFORMATION & FOOTER
+       ========================================================================== */
+    .site-footer {
+      background-color: var(--color-charcoal);
+      color: #D6DCD9;
+      padding: 4.5rem 1.5rem 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+      gap: 2.5rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .footer-brand .brand-logo {
+      color: var(--color-white);
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.92rem;
+      color: #A8B2AE;
+      margin-bottom: 1.5rem;
+      max-width: 300px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .social-link {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.08);
+      color: var(--color-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .social-link:hover {
+      background-color: var(--color-terracotta);
+      transform: translateY(-3px);
+    }
+
+    .footer-col h4 {
+      color: var(--color-white);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.65rem;
+    }
+
+    .footer-links a {
+      font-size: 0.92rem;
+      color: #A8B2AE;
+    }
+
+    .footer-links a:hover {
+      color: var(--color-white);
+      padding-left: 4px;
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.92rem;
+      color: #A8B2AE;
+      margin-bottom: 0.9rem;
+    }
+
+    .contact-list span.icon {
+      color: var(--color-amber);
+      font-weight: bold;
+    }
+
+    .footer-bottom {
+      padding-top: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: #8A9490;
+    }
+
+    /* ==========================================================================
+       11. RESPONSIVE MEDIA QUERIES
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .hero-visual {
+        max-width: 540px;
+        margin: 0 auto;
+      }
+
+      .appointment-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      /* Pure CSS Mobile Navigation Menu */
+      .nav-toggle-label {
+        display: flex;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background-color: var(--color-cream);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.5rem;
+        gap: 1rem;
+        border-bottom: 1px solid var(--color-border);
+        box-shadow: var(--shadow-md);
+        /* Hidden state */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: var(--transition);
+      }
+
+      /* Toggle Open State via Checkbox */
+      .nav-toggle-checkbox:checked ~ .nav-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      /* Hamburger to X Animation */
+      .nav-toggle-checkbox:checked + .nav-toggle-label span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .nav-toggle-checkbox:checked + .nav-toggle-label span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle-checkbox:checked + .nav-toggle-label span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      .nav-link {
+        padding: 0.5rem 0;
+        font-size: 1.05rem;
+      }
+
+      .nav-cta {
+        text-align: center;
+        margin-top: 0.5rem;
+      }
+
+      .hero-floating-card {
+        left: 1rem;
+        bottom: 1rem;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. STICKY HEADER & NAVIGATION (PURE CSS MOBILE TOGGLE)
+       ======================================================================== -->
+  <header class="site-header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="#home" class="brand-logo">
+        <span class="brand-icon" aria-hidden="true">🐾</span>
+        <span>Paws &amp; Hearth</span>
+      </a>
+
+      <!-- Pure CSS Mobile Toggle Checkbox & Label -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" aria-label="Toggle navigation menu">
+      <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <ul class="nav-menu">
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#care-tips" class="nav-link">Care Tips</a></li>
+        <li><a href="#specialists" class="nav-link">Our Team</a></li>
+        <li><a href="#appointments" class="nav-link">Clinic Info</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#appointments" class="btn btn-primary nav-cta">Book Visit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         2. HERO SECTION
+         ====================================================================== -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span aria-hidden="true">🌿</span> Fear-Free Certified Veterinary &amp; Wellness Center
+          </div>
+          <h1 class="hero-title">
+            Compassionate Care for Every <span>Wag, Purr &amp; Paw</span>
+          </h1>
+          <p class="hero-description">
+            From gentle preventive medicine and positive behavioral training to soothing spa grooming, we treat your companion like a cherished member of our own family.
+          </p>
+          <div class="hero-actions">
+            <a href="#appointments" class="btn btn-primary">Schedule an Appointment</a>
+            <a href="#services" class="btn btn-secondary">Explore Our Services</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <strong>14+ Years</strong>
+              <span>Holistic Care Experience</span>
+            </div>
+            <div class="stat-item">
+              <strong>4.9 ★</strong>
+              <span>From 1,200+ Pet Parents</span>
+            </div>
+            <div class="stat-item">
+              <strong>Same-Day</strong>
+              <span>Urgent Wellness Slots</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-frame">
+            <img 
+              src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=900&q=85" 
+              alt="Happy golden dog smiling warmly in soft natural lighting"
+              onerror="this.src='https://placehold.co/800x880/E4ECE8/2F4F42?text=Happy+Healthy+Pets'"
+            >
+          </div>
+          <div class="hero-floating-card">
+            <div class="floating-icon" aria-hidden="true">❤️</div>
+            <div>
+              <strong>Stress-Free Visits</strong>
+              <small>Separate cat &amp; dog cozy lounges</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. AVAILABLE SERVICES SECTION
+         ====================================================================== -->
+    <section id="services" class="services-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">What We Offer</span>
+          <h2 class="section-title">Tailored Care for Every Life Stage</h2>
+          <p class="section-subtitle">
+            Comprehensive veterinary, grooming, and training services designed around your pet’s physical health and emotional comfort.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <article class="service-card">
+            <div>
+              <div class="service-top">
+                <div class="service-icon" aria-hidden="true">🩺</div>
+                <span class="service-badge">$75 • 45 Mins</span>
+              </div>
+              <h3>Preventive Wellness &amp; Vet Exams</h3>
+              <p>Thorough nose-to-tail checkups, personalized vaccination schedules, parasite protection, and early health screenings.</p>
+              <ul class="service-features">
+                <li>Comprehensive physical &amp; vitals check</li>
+                <li>Tailored immunization &amp; microchipping</li>
+                <li>Senior pet mobility &amp; bloodwork panels</li>
+              </ul>
+            </div>
+            <a href="#appointments" class="service-link">Book Wellness Exam →</a>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="service-card">
+            <div>
+              <div class="service-top">
+                <div class="service-icon" aria-hidden="true">🛁</div>
+                <span class="service-badge">$65+ • 90 Mins</span>
+              </div>
+              <h3>Professional Grooming &amp; Spa</h3>
+              <p>Gentle, cage-free bathing and breed-specific styling using hypoallergenic botanical shampoos and warm towel wraps.</p>
+              <ul class="service-features">
+                <li>Oatmeal &amp; aloe soothing hydro-bath</li>
+                <li>Sanitary trim, paw pad &amp; nail buffing</li>
+                <li>Gentle ear cleaning &amp; deshedding care</li>
+              </ul>
+            </div>
+            <a href="#appointments" class="service-link">Reserve Spa Session →</a>
+          </article>
+
+          <!-- Service 3 -->
+          <article class="service-card">
+            <div>
+              <div class="service-top">
+                <div class="service-icon" aria-hidden="true">🎾</div>
+                <span class="service-badge">$90 • 60 Mins</span>
+              </div>
+              <h3>Positive Behavioral Training</h3>
+              <p>Science-backed, reward-based private coaching and puppy socialization to build confidence and joyful communication.</p>
+              <ul class="service-features">
+                <li>Puppy foundations &amp; leash manners</li>
+                <li>Separation anxiety &amp; reactivity support</li>
+                <li>Custom at-home enrichment plans</li>
+              </ul>
+            </div>
+            <a href="#appointments" class="service-link">Schedule Training →</a>
+          </article>
+
+          <!-- Service 4 -->
+          <article class="service-card">
+            <div>
+              <div class="service-top">
+                <div class="service-icon" aria-hidden="true">🦷</div>
+                <span class="service-badge">$110 • 50 Mins</span>
+              </div>
+              <h3>Pet Nutrition &amp; Dental Care</h3>
+              <p>Ultrasonic dental cleanings, fresh-breath therapies, and custom dietary plans for allergies, weight, and vitality.</p>
+              <ul class="service-features">
+                <li>Gentle plaque &amp; tartar removal</li>
+                <li>Allergy &amp; sensitive stomach diets</li>
+                <li>Life-stage portion &amp; supplement guide</li>
+              </ul>
+            </div>
+            <a href="#appointments" class="service-link">Book Consultation →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. PET-CARE TIPS SECTION
+         ====================================================================== -->
+    <section id="care-tips" class="tips-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Pet Parent Guide</span>
+          <h2 class="section-title">Daily Habits for a Longer, Happier Life</h2>
+          <p class="section-subtitle">
+            Simple, veterinarian-approved routines you can practice at home to keep tails wagging and whiskers twitching year-round.
+          </p>
+        </div>
+
+        <div class="tips-grid">
+          <!-- Tip 1 -->
+          <article class="tip-card">
+            <span class="tip-category">Daily Nutrition &amp; Hydration</span>
+            <h3>Fresh Water &amp; Mindful Portions</h3>
+            <p>Measure meals using a standard cup rather than eyeballing to prevent gradual weight gain, and refresh water bowls twice daily.</p>
+            <div class="tip-checklist">
+              💡 Tip: Cats prefer wide, shallow stainless or ceramic bowls placed away from food.
+            </div>
+          </article>
+
+          <!-- Tip 2 -->
+          <article class="tip-card">
+            <span class="tip-category">Dental Hygiene</span>
+            <h3>The Two-Minute Brush Routine</h3>
+            <p>Over 80% of pets show signs of dental sensitivity by age three. Brushing just three times a week drastically reduces tartar buildup.</p>
+            <div class="tip-checklist">
+              💡 Tip: Always use enzymatic pet-safe toothpaste—never human fluoride paste.
+            </div>
+          </article>
+
+          <!-- Tip 3 -->
+          <article class="tip-card">
+            <span class="tip-category">Mental Stimulation</span>
+            <h3>Enrichment &amp; Sniff Walks</h3>
+            <p>Twenty minutes of dedicated "sniffari" walking or puzzle-feeder play tires a dog’s brain as effectively as a brisk one-mile jog.</p>
+            <div class="tip-checklist">
+              💡 Tip: Rotate 3–4 toys weekly so old favorites feel brand new again.
+            </div>
+          </article>
+
+          <!-- Tip 4 -->
+          <article class="tip-card">
+            <span class="tip-category">Seasonal Care</span>
+            <h3>Paw Protection &amp; Coat Checks</h3>
+            <p>Test pavement with the back of your hand for 7 seconds before summer walks, and check ears and paws for burrs or ticks after park visits.</p>
+            <div class="tip-checklist">
+              💡 Tip: Apply natural shea paw balm before winter walks or hot dry days.
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. VETERINARIAN & TRAINER INFORMATION SECTION
+         ====================================================================== -->
+    <section id="specialists" class="team-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Meet Our Specialists</span>
+          <h2 class="section-title">Dedicated Hands &amp; Kind Hearts</h2>
+          <p class="section-subtitle">
+            Our multidisciplinary team combines clinical excellence with genuine patience, ensuring every animal feels safe and heard.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <!-- Specialist 1: Lead Veterinarian -->
+          <article class="team-card">
+            <div class="team-photo">
+              <img 
+                src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&w=800&q=85" 
+                alt="Dr. Clara Vance examining a calm puppy in the clinic"
+                onerror="this.src='https://placehold.co/800x640/E4ECE8/2F4F42?text=Dr.+Clara+Vance+DVM'"
+              >
+              <span class="team-role-pill">Lead Veterinarian</span>
+            </div>
+            <div class="team-info">
+              <h3>Dr. Clara Vance, DVM</h3>
+              <span class="team-credentials">Cornell Veterinary Graduate • Fear-Free Elite Certified</span>
+              <p>With 14 years in companion medicine, Dr. Vance specializes in preventive diagnostics, feline internal medicine, and gentle senior comfort care.</p>
+              <div class="specialty-tags">
+                <span class="specialty-tag">Internal Medicine</span>
+                <span class="specialty-tag">Feline Care</span>
+                <span class="specialty-tag">Preventive Health</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Specialist 2: Certified Pet Trainer -->
+          <article class="team-card">
+            <div class="team-photo">
+              <img 
+                src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=800&q=85" 
+                alt="Certified trainer working outdoors with two joyful dogs"
+                onerror="this.src='https://placehold.co/800x640/F9EAE5/C86D51?text=Marcus+Reed+CPDT-KA'"
+              >
+              <span class="team-role-pill">Certified Pet Trainer</span>
+            </div>
+            <div class="team-info">
+              <h3>Marcus Reed, CPDT-KA</h3>
+              <span class="team-credentials">Certified Professional Dog Trainer • Behavior Consultant</span>
+              <p>Marcus empowers pet parents using force-free, positive reinforcement techniques that transform leash pulling, shyness, and puppy energy into trust.</p>
+              <div class="specialty-tags">
+                <span class="specialty-tag">Puppy Foundations</span>
+                <span class="specialty-tag">Confidence Building</span>
+                <span class="specialty-tag">Reactivity Care</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Specialist 3: Master Pet Stylist & Groomer -->
+          <article class="team-card">
+            <div class="team-photo">
+              <img 
+                src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=800&q=85" 
+                alt="Grooming specialist gently brushing a fluffy dog"
+                onerror="this.src='https://placehold.co/800x640/E4ECE8/2F4F42?text=Elena+Rostova+NDGAA'"
+              >
+              <span class="team-role-pill">Master Grooming Specialist</span>
+            </div>
+            <div class="team-info">
+              <h3>Elena Rostova, NCMG</h3>
+              <span class="team-credentials">National Certified Master Groomer • Skin &amp; Coat Specialist</span>
+              <p>Elena creates a serene, one-on-one spa experience tailored for anxious rescues, double-coated breeds, and pets with sensitive skin allergies.</p>
+              <div class="specialty-tags">
+                <span class="specialty-tag">Sensitive Skin Spa</span>
+                <span class="specialty-tag">Anxious Pet Care</span>
+                <span class="specialty-tag">Hand Scissoring</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. APPOINTMENT DETAILS & BOOKING SECTION
+         ====================================================================== -->
+    <section id="appointments" class="appointment-section">
+      <div class="container appointment-layout">
+        <!-- Left Column: Clinic Hours, Guidelines & Emergency Info -->
+        <div class="clinic-details-card">
+          <h2>Plan Your Visit</h2>
+          <p>We schedule generous 45-minute appointment windows so your pet never feels rushed in the exam room.</p>
+
+          <div class="hours-box">
+            <h3>Clinic &amp; Spa Hours</h3>
+            <ul class="hours-list">
+              <li><span>Monday – Friday</span> <strong>8:00 AM – 7:00 PM</strong></li>
+              <li><span>Saturday</span> <strong>9:00 AM – 5:00 PM</strong></li>
+              <li><span>Sunday</span> <strong>10:00 AM – 3:00 PM</strong></li>
+            </ul>
+          </div>
+
+          <div class="guidelines-list">
+            <h3>Helpful Visit Guidelines</h3>
+            <ul>
+              <li>Please keep dogs on a non-retractable leash and cats inside secure carriers upon arrival.</li>
+              <li>Bring any prior vaccination records or current medications for first-time wellness visits.</li>
+              <li>Arrive 10 minutes early to enjoy complimentary herbal tea while your pet settles in.</li>
+            </ul>
+          </div>
+
+          <div class="emergency-banner" role="note">
+            <strong>🚨 After-Hours Urgent Care</strong>
+            For life-threatening emergencies outside clinic hours, call our 24/7 partner triage line at <strong>(555) 019-9911</strong>.
+          </div>
+        </div>
+
+        <!-- Right Column: Pure HTML/CSS Appointment Request Form -->
+        <div class="booking-form-card">
+          <h3>Request an Appointment</h3>
+          <p>Complete the form below and our care coordinator will confirm your preferred slot within 2 business hours.</p>
+
+          <form action="#appointments" method="get">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="owner-name">Your Full Name *</label>
+                <input type="text" id="owner-name" name="owner_name" class="form-control" placeholder="e.g., Jordan Taylor" required>
+              </div>
+
+              <div class="form-group">
+                <label for="owner-contact">Phone or Email *</label>
+                <input type="text" id="owner-contact" name="owner_contact" class="form-control" placeholder="(555) 234-5678" required>
+              </div>
+
+              <div class="form-group">
+                <label for="pet-name">Pet’s Name *</label>
+                <input type="text" id="pet-name" name="pet_name" class="form-control" placeholder="e.g., Barnaby" required>
+              </div>
+
+              <div class="form-group">
+                <label for="pet-species">Pet Species &amp; Breed</label>
+                <select id="pet-species" name="pet_species" class="form-control">
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="rabbit">Rabbit / Small Mammal</option>
+                  <option value="bird">Companion Bird</option>
+                  <option value="other">Other Companion</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="service-select">Select Service *</label>
+                <select id="service-select" name="service" class="form-control" required>
+                  <option value="" disabled selected>Choose a care service...</option>
+                  <option value="wellness">Preventive Wellness &amp; Vet Exam ($75)</option>
+                  <option value="grooming">Professional Grooming &amp; Spa ($65+)</option>
+                  <option value="training">Positive Behavioral Training ($90)</option>
+                  <option value="dental">Pet Nutrition &amp; Dental Care ($110)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="preferred-date">Preferred Date *</label>
+                <input type="date" id="preferred-date" name="preferred_date" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                <label for="preferred-time">Preferred Time Window</label>
+                <select id="preferred-time" name="preferred_time" class="form-control">
+                  <option value="morning">Morning (8:30 AM – 12:00 PM)</option>
+                  <option value="afternoon">Afternoon (12:00 PM – 4:00 PM)</option>
+                  <option value="evening">Late Afternoon (4:00 PM – 6:30 PM)</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="visit-notes">Notes about your pet (temperament, allergies, symptoms)</label>
+                <textarea id="visit-notes" name="visit_notes" class="form-control" placeholder="Tell us if your pet is shy around strangers, loves belly rubs, or has specific health questions..."></textarea>
+              </div>
+
+              <div class="form-group full-width">
+                <button type="submit" class="btn btn-primary form-submit-btn">
+                  Confirm Appointment Request
+                </button>
+                <p class="form-note">No upfront payment required. Free rescheduling up to 24 hours before your visit.</p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       7. CONTACT INFORMATION & FOOTER
+       ======================================================================== -->
+  <footer id="contact" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <a href="#home" class="brand-logo">
+            <span class="brand-icon" aria-hidden="true">🐾</span>
+            <span>Paws &amp; Hearth</span>
+          </a>
+          <p>
+            A warm, modern sanctuary dedicated to holistic veterinary care, force-free training, and gentle pet grooming.
+          </p>
+          <div class="social-links" aria-label="Social Media Links">
+            <a href="#contact" class="social-link" aria-label="Instagram">IG</a>
+            <a href="#contact" class="social-link" aria-label="Facebook">FB</a>
+            <a href="#contact" class="social-link" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#care-tips">Pet-Care Tips</a></li>
+            <li><a href="#specialists">Veterinarians &amp; Trainers</a></li>
+            <li><a href="#appointments">Book an Appointment</a></li>
+          </ul>
+        </div>
+
+        <!-- Services Summary -->
+        <div class="footer-col">
+          <h4>Care Specialties</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Annual Wellness Exams</a></li>
+            <li><a href="#services">Fear-Free Cat Lounge</a></li>
+            <li><a href="#services">Botanical Hydro-Grooming</a></li>
+            <li><a href="#services">Puppy Socialization</a></li>
+            <li><a href="#services">Ultrasonic Dental Care</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="footer-col">
+          <h4>Visit &amp; Contact Us</h4>
+          <ul class="contact-list">
+            <li>
+              <span class="icon" aria-hidden="true">📍</span>
+              <span>428 Meadowbrook Lane, Suite 102<br>Portland, OR 97205</span>
+            </li>
+            <li>
+              <span class="icon" aria-hidden="true">📞</span>
+              <a href="tel:+15550148820">(555) 014-8820</a>
+            </li>
+            <li>
+              <span class="icon" aria-hidden="true">✉️</span>
+              <a href="mailto:hello@pawsandhearth.example">hello@pawsandhearth.example</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Paws &amp; Hearth Veterinary &amp; Pet Wellness Center. All rights reserved.</p>
+        <p>Crafted with care using pure semantic HTML5 &amp; CSS3.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
